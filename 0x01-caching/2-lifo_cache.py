@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-"""
-Create a class LIFOCache that inherits from
-BaseCaching and is a caching system:
-"""
+""" 2-main LIFO """
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
     """ LIFOCache inherit from BaseCaching """
+    list_aux = []
+
     def __init__(self):
         super().__init__()
-        self.list_aux = []
+
 
     def put(self, key, item):
         """ Add LIFO"""
