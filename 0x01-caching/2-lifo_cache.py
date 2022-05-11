@@ -11,9 +11,8 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         super().__init__()
 
-
     def put(self, key, item):
-        """ Add LIFO"""
+        """ Add LIFO """
         if key is None or item is None:
             return
         self.list_aux.append(key)
