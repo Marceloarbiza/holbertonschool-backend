@@ -28,6 +28,9 @@ class LRUCache(BaseCaching):
         if len(self.cache_data) > self.MAX_ITEMS:
             new_list = sorted(self.list_aux, key=lambda tup: tup[1])
             del self.cache_data[new_list[0][0]]
+            for i in self.list_aux:
+                if i[0] == new_list[0][0]:
+                    self.list_aux.remove(i)
             print("DISCARD: {}".format(new_list[0][0]))
 
     def get(self, key):
