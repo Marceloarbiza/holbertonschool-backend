@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-Create a class LRUCache that inherits from
-BaseCaching and is a caching system:
-"""
+""" 3-main LRU """
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -11,6 +8,7 @@ class LRUCache(BaseCaching):
     list_aux = []
 
     def __init__(self):
+        """ Init instance """
         super().__init__()
 
     def put(self, key, item):
