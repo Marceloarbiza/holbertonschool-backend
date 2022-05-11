@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" 3-main LRU """
+""" 3-main LRU Cache """
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -8,11 +9,11 @@ class LRUCache(BaseCaching):
     list_aux = []
 
     def __init__(self):
-        """ Init instance """
+        """ Init instance BaseCaching """
         super().__init__()
 
     def put(self, key, item):
-        """ Add LRU """
+        """ Add LRU to cache """
         if key is None or item is None:
             return
         self.cache_data[key] = item
@@ -31,7 +32,7 @@ class LRUCache(BaseCaching):
             print("DISCARD: {}".format(to_remove))
 
     def get(self, key):
-        """ Get LRU """
+        """ Get LRU to cache """
         if key is None or key not in self.cache_data:
             return None
         if self.list_aux.count(key) == 0:
