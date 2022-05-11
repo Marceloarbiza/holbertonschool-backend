@@ -23,20 +23,33 @@ class LRUCache(BaseCaching):
             self.dict_aux[key] = 0
         else:
             self.dict_aux[key] += 1
-        self.list_aux.append((key, self.dict_aux[key]))
+        for i in self.list_aux:
+            if i == key:
+                self.list_aux.remove(i)
+        self.list_aux.append(key)
         self.cache_data[key] = item
         if len(self.cache_data) > self.MAX_ITEMS:
-            new_list = sorted(self.list_aux, key=lambda tup: tup[1])
-            del self.cache_data[new_list[0][0]]
+            min_value = min(self.dict_aux.values())
+            min_keys = []
+            for key in self.dict_aux:
+                if self.dict_aux[key] == min_value:
+                    min_keys.append(key)
+
             for i in self.list_aux:
-                if i[0] == new_list[0][0]:
+                if i in min_keys:
+                    to_remove = i
                     self.list_aux.remove(i)
-            print("DISCARD: {}".format(new_list[0][0]))
+                    break
+            del self.cache_data[to_remove]
+            print("DISCARD: {}".format(to_remove))
 
     def get(self, key):
         """ Get LRU """
         if key is None or key not in self.cache_data:
             return None
         self.dict_aux[key] += 1
-        self.list_aux.append((key, self.dict_aux[key]))
+        for i in self.list_aux:
+            if i == key:
+                self.list_aux.remove(i)
+        self.list_aux.append(key)
         return self.cache_data[key]
