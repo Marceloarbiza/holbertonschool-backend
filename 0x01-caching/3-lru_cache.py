@@ -8,9 +8,11 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class LRUCache(BaseCaching):
     """ LRUCache inherit from BaseCaching """
+
+    list_aux = []
+
     def __init__(self):
         super().__init__()
-        self.list_aux = []
 
     def put(self, key, item):
         """ Add LRU """
