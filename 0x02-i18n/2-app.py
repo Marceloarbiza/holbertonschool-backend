@@ -18,7 +18,7 @@ def get_locale():
 @app.route('/')
 def index():
     """ Index route locale """
-    return render_template('2-index.html')
+    return render_template('1-index.html')
 
 
 class Config:
