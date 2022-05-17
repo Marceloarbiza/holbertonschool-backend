@@ -9,16 +9,10 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-@babel.localeselector
-def get_locale():
-    """ Returns current locale """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 @app.route('/')
 def index():
     """ Index route locale """
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 class Config:
@@ -29,6 +23,12 @@ class Config:
 
 
 app.config.from_object(Config)
+
+
+@babel.localeselector
+def get_locale():
+    """ Returns current locale """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
