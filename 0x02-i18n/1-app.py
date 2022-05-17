@@ -21,8 +21,6 @@ class Config:
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
-    BABEL_DEFAULT_DOMAIN = 'messages'
-    BABEL_DEFAULT_FOLDER = 'translations'
 
 
 if __name__ == '__main__':
