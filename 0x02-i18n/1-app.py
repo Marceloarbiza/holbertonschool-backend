@@ -23,5 +23,8 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app.config.from_object(Config)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
