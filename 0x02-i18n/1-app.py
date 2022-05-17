@@ -9,9 +9,9 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'], strict_slashes=False)
 def index():
-    """ Index route """
+    """ Index route locale """
     return render_template('1-index.html')
 
 
