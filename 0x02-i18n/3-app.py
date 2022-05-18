@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Flask Babel i18n """
 
+from http.client import REQUEST_HEADER_FIELDS_TOO_LARGE
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
@@ -28,6 +29,7 @@ app.config.from_object(Config)
 @babel.localeselector
 def get_locale():
     """ Returns current locale """
+    # check if request contain locale 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
