@@ -20,7 +20,7 @@ users = {
 @app.route('/', methods=['GET', 'POST'], strict_slashes=False)
 def index():
     """ Index route locale """
-    return render_template('3-index.html')
+    return render_template('5-index.html')
 
 
 class Config:
